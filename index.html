@@ -2,40 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Diana Yvonne Margaret P. Dela Cruz - Web Résumé</title>
+    <title>Diana Yvonne Margaret Dela Cruz - Web Résumé</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-        header { background: #1e293b; color: white; padding: 20px; text-align: center; }
-        nav { background: #334155; padding: 10px; text-align: center; position: sticky; top: 0; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        section { background: white; margin: 20px auto; padding: 20px; width: 90%; max-width: 900px; border-radius: 8px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background: #f5f5f5;
+        }
+
+        /* HERO SECTION WITH BACKGROUND */
+        .hero {
+            background-image: url('office.webp');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1e293b;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            color: #1e293b;
+        }
+
+        .profile-info p {
+            margin: 4px 0;
+            color: #334155;
+        }
+
+        /* MENU BUTTONS */
+        .menu-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .menu-buttons button {
+            background: #334155;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .menu-buttons button:hover {
+            background: #1e40af;
+        }
+
+        /* HIDDEN SECTIONS */
+        .section {
+            display: none;
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+
         h2 { color: #1e293b; }
         ul { margin-left: 20px; }
-        footer { text-align: center; padding: 10px; font-size: 0.8rem; color: #555; }
         a { color: #1e40af; }
-        a:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 10px; color: #555; margin-top: 40px; }
     </style>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </head>
+
 <body>
 
-<header>
-    <h1>Diana Yvonne Margaret Dela Cruz</h1>
-    <p>Information Technology Student • New Era University</p>
-    <p>Email: dianadelacruz021605@gmail.com • Contact: 09757394510</p>
-</header>
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="profile-card">
+        <img src="prf.jpg" alt="Profile Picture">
 
-<!-- Navigation Menu -->
-<nav>
-    <a href="#education">Educational Background</a>
-    <a href="#qualifications">Qualifications</a>
-    <a href="#skills">Skills</a>
-    <a href="#awards">Awards & Certifications</a>
-</nav>
+        <div class="profile-info">
+            <h1>Diana Yvonne Margaret Dela Cruz</h1>
+            <p>Information Technology Student</p>
+            <p>New Era University</p>
+            <p>Email: your.email@example.com</p>
+            <p>Contact: 09XX-XXX-XXXX</p>
+        </div>
+    </div>
+</div>
 
-<!-- Educational Background -->
-<section id="Education">
+<!-- MENU BUTTONS -->
+<div class="menu-buttons">
+    <button onclick="showSection('education')">Educational Background</button>
+    <button onclick="showSection('qualifications')">Qualifications</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('awards')">Certifications</button>
+</div>
+
+<!-- EDUCATIONAL BACKGROUND -->
+<div id="education" class="section">
     <h2>Educational Background</h2>
     <ul>
         <li>
@@ -44,10 +136,10 @@
             2024–present
         </li>
     </ul>
-</section>
+</div>
 
-<!-- Qualifications -->
-<section id="Qualifications">
+<!-- QUALIFICATIONS -->
+<div id="qualifications" class="section">
     <h2>Qualifications</h2>
     <ul>
         <li>Hands-on experience with IBM DB2 (schema design, SQL queries, procedural logic).</li>
@@ -56,10 +148,10 @@
         <li>Knowledgeable in front-end web development (HTML & CSS).</li>
         <li>Strong communication, problem-solving, and adaptability.</li>
     </ul>
-</section>
+</div>
 
-<!-- Skills -->
-<section id="Skills">
+<!-- SKILLS -->
+<div id="skills" class="section">
     <h2>Skills</h2>
     <ul>
         <li>Programming: Java (beginner–intermediate)</li>
@@ -68,27 +160,27 @@
         <li>Tools: Figma, Lucidchart, Eclipse IDE</li>
         <li>Soft Skills: communication, teamwork, time management</li>
     </ul>
-</section>
+</div>
 
-<!-- Awards & Certifications -->
-<section id="Certifications">
+<!-- AWARDS & CERTIFICATIONS -->
+<div id="awards" class="section">
     <h2>Awards & Certifications</h2>
     <ul>
-         <li>
-            <a href="https://courses.cognitiveclass.ai/certificates/9064045450c34b5fb03786735658f5e7#:~:text=https%3A//courses.cognitiveclass.ai/certificates/9064045450c34b5fb03786735658f5e7" target="_blank">
-                SQL and Relational Databases 101
-            </a><br>
-            Completed: [December 2025]
-        </li>
-      
         <li>
-            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=570B31B8A88DC3C82CF192B3452DAAC2BD9C45FE897BA7EB82D53255A69D32EB" target="_blank">
+            <a href="YOUR-OCI-LINK-HERE" target="_blank">
                 Oracle Cloud Infrastructure (OCI) Foundations Certification
             </a><br>
-            Completed: [December 2025]
+            Completed: [07 December 2025]
+        </li>
+
+        <li>
+            <a href="YOUR-SQL-LINK-HERE" target="_blank">
+                SQL and Relational Databases 101
+            </a><br>
+            Completed: [26 November 2025]
         </li>
     </ul>
-</section>
+</div>
 
 <footer>
     © 2024 • Diana Yvonne Margaret Dela Cruz • Web-Based Résumé
